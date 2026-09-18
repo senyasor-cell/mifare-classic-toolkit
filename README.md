@@ -273,3 +273,4 @@ xz-utils (public domain)
 
 Авторы
 Проект создан Сорокиным Александром (СПбГУ) с помощью Claude (Anthropic) в ходе итеративной разработки и отладки драйвера PROX 13 MHz Reader и набора утилит для MIFARE Classic.
+
