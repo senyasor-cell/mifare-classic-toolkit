@@ -1,0 +1,24 @@
+# Кросс-компиляция утилит под Windows (MinGW-w64) из Linux.
+CC          = x86_64-w64-mingw32-gcc
+CFLAGS      = -O2 -Wall
+CROSS_LIBS  = -L/opt/cross-libs/lib -lnfc -lws2_32 -lsetupapi -lcfgmgr32
+CROSS_INC   = -I/opt/cross-libs/include
+LDLIBS      = $(CROSS_INC) $(CROSS_LIBS)
+
+UTILS   = mf_write_dump.exe mf_factory_reset.exe mf_key_dict.exe
+
+all: $(UTILS)
+
+mf_write_dump.exe:    mf_write_dump.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
+
+mf_factory_reset.exe: mf_factory_reset.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
+
+mf_key_dict.exe:      mf_key_dict.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+clean:
+	rm -f $(UTILS)
+
+.PHONY: all clean

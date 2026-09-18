@@ -1,0 +1,22 @@
+# Сборка утилит под Linux.
+CC      = gcc
+CFLAGS  = -O2 -Wall
+LDLIBS  = $(shell pkg-config --libs libnfc)
+
+UTILS   = mf_write_dump mf_factory_reset mf_key_dict
+
+all: $(UTILS)
+
+mf_write_dump:    mf_write_dump.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
+
+mf_factory_reset: mf_factory_reset.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
+
+mf_key_dict:      mf_key_dict.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+clean:
+	rm -f $(UTILS)
+
+.PHONY: all clean
