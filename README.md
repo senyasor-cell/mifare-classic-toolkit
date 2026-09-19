@@ -1,4 +1,4 @@
-MIFARE Classic Toolkit
+# MIFARE Classic Toolkit
 Набор утилит для работы с картами MIFARE Classic и UID-changeable болванками (Zero, OTP, FUID, UFUID, Gen1A/B, Gen2, Gen3, MF3.2). Проект создавался с упором на считыватель PROX 13 MHz Reader (ООО «Прокс»), но также работает с PN532 и другими ридерами, поддерживаемыми libnfc.
 
 Возможности
